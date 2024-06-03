@@ -19,7 +19,6 @@ public class RandomNumberSort {
 	// 랜덤 숫자 뽑는 메서드
 	public void show_random_numbers() {
 		System.out.printf("%s\r\n", "\r\n");
-		System.out.println("랜덤 숫자 선별");
 		for (int number : this.randomNumbers) {
 			System.out.printf("%d  ", number);
 		}
@@ -28,8 +27,11 @@ public class RandomNumberSort {
 
 	// 뽑힌 숫자들 정렬하는 메서드
 	public void sorting_random_numbers(boolean ascending) {
+
 		if (ascending) {
+
 			int max_number = 0;
+
 			for (int i = 0; i < this.randomNumbers.length - 1; ++i) {
 				for (int j = 1; j < this.randomNumbers.length; ++j) {
 					if (this.randomNumbers[j] > this.randomNumbers[j - 1]) {
@@ -41,6 +43,7 @@ public class RandomNumberSort {
 					}
 				}
 			}
+
 		}
 	}
 

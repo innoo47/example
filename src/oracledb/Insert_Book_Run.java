@@ -15,7 +15,7 @@ public class Insert_Book_Run {
 			connect = DriverManager.getConnection(connectionURL, "madang", "madang");
 			final String insert_sql = """
 					INSERT INTO Orders(orderid, custid, bookid, saleprice, orderdate)\s
-					VALUES(?, ?, ?, ?, TO_DATE(?, 'yyyy-mm-dd'));
+					VALUES(?, ?, ?, ?, TO_DATE(?, 'yyyy-mm-dd'))
 					""";
 			final PreparedStatement preparedStatement = connect.prepareStatement(insert_sql);
 			int[] custid = {1, 1, 2, 3, 4, 1, 4, 3, 2, 3};

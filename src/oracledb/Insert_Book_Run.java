@@ -15,7 +15,7 @@ public class Insert_Book_Run {
 			connect = DriverManager.getConnection(connectionURL, "madang", "madang");
 			final String insert_sql = """
 					INSERT INTO Orders(orderid, custid, bookid, saleprice, orderdate)\s
-					VALUES(?, ?, ?, ?, TO_DATE(?, 'yyyy-mm-dd'))
+					VALUES(?, ?, ?, ?, TO_DATE(?, 'yyyy-mm-dd')) // 엘비스연산자를 사용하는 것이 편함
 					""";
 			final PreparedStatement preparedStatement = connect.prepareStatement(insert_sql);
 			int[] custid = {1, 1, 2, 3, 4, 1, 4, 3, 2, 3};
@@ -28,7 +28,8 @@ public class Insert_Book_Run {
 				preparedStatement.setInt(2, custid[i]);
 				preparedStatement.setInt(3, bookid[i]);
 				preparedStatement.setInt(4, saleprice[i]);
-				preparedStatement.setString(5, orderdate[i]);
+				preparedStatement.setString(5, orderdate[i]); // String Type
+				// preparedStatement.setDate(5,  java.sql.Date.valueOf("2024-06-13")); //Date Type
 				final int row = preparedStatement.executeUpdate();
 				System.out.println("저장된 행" + row);
 			}
